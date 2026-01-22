@@ -1083,6 +1083,108 @@ main {
   transform: scale(1.05);
 }
 
+.filter-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+#searchInput, #categoryFilter {
+  padding: 12px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#searchInput {
+  width: 100%;
+  max-width: 700px;
+}
+.search-filter-section {
+  max-width: 1200px;
+  margin: 3rem auto 1rem auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 900px;
+  padding: 18px 30px;
+  font-size: 1.2rem;
+  font-family: "Outfit", sans-serif;
+  background-color: var(--input); 
+  color: var(--dark-txt-clr);
+  border: 2px solid var(--main-light);
+  border-radius: 50px; 
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--rgba1);
+}
+
+.search-input:focus {
+  border-color: var(--main-txt-clr);
+  box-shadow: 0 0 15px var(--shadow-clr);
+  transform: scale(1.01);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 1000px;
+}
+
+.filter-btn {
+  
+  padding: 10px 22px;
+  font-size: 0.8rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  background-color: var(--darker-white);
+  border: 1px solid var(--main-light);
+  color: var(--dark-txt-clr);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: var(--main-light);
+  border-color: var(--main-txt-clr);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: var(--main-txt-clr);
+  color: var(--white-color);
+  border-color: var(--main-txt-clr);
+  box-shadow: 0 5px 15px var(--shadow-clr);
+}
+
+.no-results {
+  text-align: center;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: var(--main-light);
+  border: 1px dashed var(--main-txt-clr);
+  border-radius: 15px;
+  color: var(--dark-txt-clr);
+  max-width: 600px;
+}
+
+.no-results p {
+    color: var(--dark-txt-clr);
+    font-weight: 500;
+}
+
+
 /* RESPONSIVE DESIGN */
 
 /* Large Tablets (max-width: 1100px) */

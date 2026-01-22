@@ -1,32 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="img" sizes="32*32" href="images/Logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Logo.png" />
     <title>Pawsome | Pets Available</title>
   </head>
   <body>
     <nav>
       <img src="images/Logo.png" alt="Logo" />
-
       <div class="options">
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="available pets.html" class="nav-link selected"
-          >Available Pets</a
-        >
+        <a href="available pets.html" class="nav-link selected">Available Pets</a>
         <a href="contact.html" class="nav-link">Contact Us</a>
       </div>
-
       <div>
-        <a href="volunter.html"
-          ><button class="volunteer">Become a volunteer</button></a
-        >
-        <a href="#" id="theme-toggle" class="nav-link" style="margin-left: 1rem"
-          >🌙</a
-        >
+        <a href="volunter.html"><button class="volunteer">Become a volunteer</button></a>
+        <a href="#" id="theme-toggle" class="nav-link" style="margin-left: 1rem">🌙</a>
       </div>
     </nav>
 
@@ -36,8 +28,37 @@
         <p>Meet your new friends</p>
       </div>
 
+      <div class="search-filter-section">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search by name, breed, or description..." 
+        />
+        
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All Pets</button>
+          <button class="filter-btn" data-filter="dog">Dogs</button>
+          <button class="filter-btn" data-filter="cat">Cats</button>
+          <button class="filter-btn" data-filter="beagle">Beagle</button>
+          <button class="filter-btn" data-filter="border collie">Border Collie</button>
+          <button class="filter-btn" data-filter="mixed breed">Mixed Breed</button>
+          <button class="filter-btn" data-filter="scottish fold">Scottish Fold</button>
+          <button class="filter-btn" data-filter="highlander">Highlander</button>
+          <button class="filter-btn" data-filter="golden retriever">Golden Retriever</button>
+          <button class="filter-btn" data-filter="kitten">Under 1 year</button>
+          <button class="filter-btn" data-filter="young">1–3 years</button>
+          <button class="filter-btn" data-filter="adult">3–5 years</button>
+          <button class="filter-btn" data-filter="senior">5+ years</button>
+        </div>
+      </div>
+
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>No pets found matching your search. Try different keywords!</p>
+      </div>
+
       <div class="container">
-        <div class="card">
+        <div class="card" data-tags="dog beagle young friendly energetic fetch charlie 1 year">
           <img src="Pets available images/charlie.jpg" alt="dog image" />
           <div class="pet-description">
             <div class="pet-text">
@@ -46,29 +67,25 @@
               <p>Friendly and energetic, loves to play fetch!</p>
               <p>🗓️1 years</p>
             </div>
-
-            <button class="meet">
-              <a href="contact.html">Meet Charlie</a>
-            </button>
+            <button class="meet"><a href="contact.html">Meet Charlie</a></button>
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="dog border collie adult active adventurous max 3 years">
           <img src="Pets available images/max.jpg" alt="dog image" />
           <div class="pet-description">
             <div class="pet-text">
               <p class="pet-name">Max</p>
-              <p>Border Colie</p>
+              <p>Border Collie</p>
               <p>Active and adventurous, perfect hiking companion!</p>
               <p>🗓️3 years</p>
             </div>
-
             <button class="meet"><a href="contact.html">Meet Max</a></button>
           </div>
         </div>
 
-        <div class="card">
-          <img src="Pets available images/Rocky.png" alt="cati mage" />
+        <div class="card" data-tags="cat mixed breed kitten playful rocky 3 months">
+          <img src="Pets available images/Rocky.png" alt="cat image" />
           <div class="pet-description">
             <div class="pet-text">
               <p class="pet-name">Rocky</p>
@@ -76,12 +93,11 @@
               <p>Playful kitten with lots of love to give!</p>
               <p>🗓️3 months</p>
             </div>
-
             <button class="meet"><a href="contact.html">Meet Rocky</a></button>
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="cat scottish fold young calm luna 2 years">
           <img src="Pets available images/Scottish Fold.webp" alt="cat image" />
           <div class="pet-description">
             <div class="pet-text">
@@ -90,13 +106,12 @@
               <p>Calm and gentle, loves quiet afternoons by the window.</p>
               <p>🗓️2 years</p>
             </div>
-
             <button class="meet"><a href="contact.html">Meet Luna</a></button>
           </div>
         </div>
 
-        <div class="card">
-          <img src="Pets available images/bella.jpg" alt="dog image" />
+        <div class="card" data-tags="cat highlander adult sweet bella 3 years">
+          <img src="Pets available images/bella.jpg" alt="cat image" />
           <div class="pet-description">
             <div class="pet-text">
               <p class="pet-name">Bella</p>
@@ -104,12 +119,11 @@
               <p>Sweet and cuddly, perfect lap cat for cozy evenings.</p>
               <p>🗓️3 years</p>
             </div>
-
             <button class="meet"><a href="contact.html">Meet Bella</a></button>
           </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="dog golden retriever adult loyal milo 4 years">
           <img src="Pets available images/milo.jpg" alt="dog image" />
           <div class="pet-description">
             <div class="pet-text">
@@ -118,7 +132,6 @@
               <p>Loyal companion, great with kids and other pets.</p>
               <p>🗓️4 years</p>
             </div>
-
             <button class="meet"><a href="contact.html">Meet Milo</a></button>
           </div>
         </div>
@@ -126,69 +139,12 @@
     </main>
 
     <footer>
-      <div class="footer-container">
-        <div>
-          <div class="logo">
-            <img src="images/Logo.png" alt="logo" />
-            <h2>Pawsome Adopt</h2>
-          </div>
-          <p>
-            Connecting loving families with pets in need of forever homes. Every
-            adoption saves a life.
-          </p>
-          <div class="social-media">
-            <img src="images/facebook.png" alt="facebook logo" />
-            <img src="images/twitter.png" alt="twitter logo" />
-            <img src="images/Linkedin.png" alt="linkedin logo" />
-            <img src="images/instagram.png" alt="instagram logo" />
-          </div>
-        </div>
-
-        <div class="links">
-          <h3>Quick Links</h3>
-          <ul class="footer-nav">
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li><a href="about.html">About</a></li>
-            <li>
-              <a href="available pets.html">Available Pets</a>
-            </li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="volunter.html">Become a volunteer</a></li>
-          </ul>
-        </div>
-
-        <div class="contact-options">
-          <h3>Contact Us</h3>
-          <p>📍123 Pet Adoption Street,Addis Ababa</p>
-          <p>📞09-12-34-56-78</p>
-          <p>💌info@pawsomeadopt.com</p>
-        </div>
-
-        <div class="footer-card">
-          <h3>Ready to change a Life?</h3>
-          <p>
-            Start your journey today and give a pet the loving home theydeserve.
-            Together, we can make a difference!
-          </p>
-          <div class="cta-container">
-            <a href="available pets.html"
-              ><button class="cta main-cta">Browse Pets</button></a
-            >
-            <a href="volunter.html"
-              ><button class="cta secondary-cta">Become a volunteer</button></a
-            >
-          </div>
-        </div>
-      </div>
-      <hr />
-
       <div class="copyright">
         <p>Made with ❤️ for animals in need</p>
         <p>©2025 PawsomeAdopt. All rights reserved.</p>
       </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
