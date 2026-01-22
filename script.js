@@ -159,3 +159,79 @@ if (form) {
     }
   });
 }
+
+// volunteer page
+
+// =====================
+// Volunteer Page
+// =====================
+const volunteerForm = document.querySelector("#fifth-form form");
+if (volunteerForm) {
+  const validators = {
+    fname: value => value.trim() !== "" ? "" : "First name is required.",
+    lname: value => value.trim() !== "" ? "" : "Last name is required.",
+    email: value => /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(value.trim()) ? "" : "Enter a valid email.",
+    phone: value => /^09-\d{2}-\d{2}-\d{2}-\d{2}$/.test(value.trim()) ? "" : "Format: 09-12-34-56-78.",
+    availabilities: value => value.trim() !== "" ? "" : "Please specify availability.",
+    experience: value => value.trim() !== "" ? "" : "Mention experience or write 'None'.",
+    reason: value => value.trim() !== "" ? "" : "Please tell us why you want to volunteer."
+  };
+
+  // Real-time validation
+  Object.keys(validators).forEach(fieldId => {
+    const input = document.getElementById(fieldId);
+    if (input) {
+      input.addEventListener("input", function () {
+        const errorMessage = validators[fieldId](input.value);
+        if (errorMessage) {
+          showError(input, errorMessage);
+        } else {
+          clearError(input);
+        }
+      });
+    }
+  });
+
+// Checkbox validation (real-time)
+  const checkboxes = document.querySelectorAll("#area-of-interest input[type='checkbox']");
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", function () {
+      const checked = Array.from(checkboxes).some(c => c.checked);
+      const interestGroup = document.getElementById("area-of-interest");
+      if (!checked) {
+        showError(interestGroup, "Select at least one area of interest.");
+      } else {
+        clearError(interestGroup);
+      }
+    });
+  });
+
+  // Final validation on submit
+  volunteerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    let isValid = true;
+
+    document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+    Object.keys(validators).forEach(fieldId => {
+      const input = document.getElementById(fieldId);
+      const errorMessage = validators[fieldId](input.value);
+      if (errorMessage) {
+        showError(input, errorMessage);
+        isValid = false;
+      }
+    });
+
+ const checked = Array.from(checkboxes).some(c => c.checked);
+    const interestGroup = document.getElementById("area-of-interest");
+    if (!checked) {
+      showError(interestGroup, "Select at least one area of interest.");
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert("🎉 Thank you for applying to volunteer! We’ll get back to you soon.");
+      volunteerForm.reset();
+    }
+  });
+}
