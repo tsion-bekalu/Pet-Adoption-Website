@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pawsome-purple: #8880ff;
+  --pawsome-hover: #884dff;
+  --pawsome-light: #e9d4ff;
+  --pawsome-lighter: #f3e8ff;
+  --pawsome-bg: #f7edff;
+  --pawsome-text: #323131;
+  --pawsome-subtitle: #464646;
+  --pawsome-shadow: #e6d1f8;
+  --pawsome-about-h1: #d22ed2;
+  --footer-gradient1: #59168b;
+  --footer-gradient2: #6e11b0;
+}
+
+.dark {
+  --pawsome-purple: #b3a9ff;
+  --pawsome-hover: #a370ff;
+  --pawsome-light: #2d2438;
+  --pawsome-lighter: #251d2f;
+  --pawsome-bg: #120d1a;
+  --pawsome-text: #d1c4e9;
+  --pawsome-subtitle: #b0a0c4;
+  --pawsome-shadow: rgba(0, 0, 0, 0.5);
+  --pawsome-about-h1: #ff77ff;
+  --footer-gradient1: #25093d;
+  --footer-gradient2: #350855;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--pawsome-bg);
+  color: var(--pawsome-text);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #1c1625;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 600;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-full font-semibold 
+           transition-all duration-300 hover:bg-primary-hover hover:shadow-pawsome-hover
+           active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-primary-light text-primary px-6 py-3 rounded-full font-semibold
+           transition-all duration-300 hover:bg-primary-lighter
+           active:scale-95;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-heading font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-pawsome-subtitle text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-pawsome p-6
+           transition-all duration-300 hover:shadow-pawsome-hover hover:-translate-y-1;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-primary-light
+           bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 
+           focus:ring-primary focus:border-transparent transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply relative font-medium text-pawsome-text dark:text-gray-200 
+           hover:text-primary transition-colors duration-300;
+  }
+
+  .nav-link.active {
+    @apply text-primary;
+  }
+
+  .nav-link.active::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-full h-0.5 bg-primary;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pawsome-lighter);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pawsome-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pawsome-hover);
+}
